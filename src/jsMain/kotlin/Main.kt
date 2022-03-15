@@ -18,9 +18,9 @@ fun main() {
                 style {
                     fontFamily("Inter", "sans-serif")
                     lineHeight(1.5.number)
-                    background("#F2F2F2")
+                    background(Colors.Gray)
                     justifyContent(JustifyContent.Center)
-                    color(Color("#323232"))
+                    color(Color(Colors.DarkGray))
                 }
             }) {
                 Div({
@@ -30,7 +30,7 @@ fun main() {
                             auto
                         }
                         padding(32.px)
-                        background("white")
+                        background(Colors.White)
                     }
                 }) {
                     Section(
@@ -44,11 +44,14 @@ fun main() {
                         Div {
                             Div(
                                 attrs = {
-                                    style { alignSelf(AlignSelf.End) }
+                                    AlignSelf("right")
+                                    AlignContent("right")
+                                    AlignItems("right")
                                 }
                             ) {
                                 Button(
                                     attrs = {
+                                        AlignSelf("right")
                                         onClick { state = state.copy(isRu = state.isRu.not()) }
                                     }
                                 ) {
@@ -86,7 +89,7 @@ private fun Avatar(state: State) {
         Div {
             Img(
                 src = "img/me.jpg",
-                alt = "My photo",
+                alt = state.dictionary.avatar,
                 attrs = {
                     style {
                         width(130.px)
